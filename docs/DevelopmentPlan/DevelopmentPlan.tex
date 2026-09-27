@@ -22,7 +22,7 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-Date1 & Name(s) & Description of changes\\
+Sep 27 2026 & Vikram Chandar & Add Expected Technology, Coding Standards and Use of AI sections\\
 Date2 & Name(s) & Description of changes\\
 ... & ... & ...\\
 \bottomrule
@@ -117,48 +117,58 @@ you will be able to overcome this risk?
 
 \section{Expected Technology}
 
-\wss{What programming language or languages do you expect to use?  What external
-libraries?  What frameworks?  What technologies.  Are there major components of
-the implementation that you expect you will implement, despite the existence of
-libraries that provide the required functionality.  For projects with machine
-learning, will you use pre-trained models, or be training your own model?  }
 
-\wss{The implementation decisions can, and likely will, change over the course
-of the project.  The initial documentation should be written in an abstract way;
-it should be agnostic of the implementation choices, unless the implementation
-choices are project constraints.  However, recording our initial thoughts on
-implementation helps understand the challenge level and feasibility of a
-project.  It may also help with early identification of areas where project
-members will need to augment their training.}
+\noindent The project will use an open source game engine like \textbf{Unity} as the primary game engine and \textbf{C\#} as the primary programming language. C\# will be used to implement the drone simulation, flight controls, physics, user interfaces, VR interactions, multiplayer functionality, and AI-based flight analysis. C may be investigated for lower-level components such as drivers if direct hardware access or performance requirements make it necessary.
 
-Topics to discuss include the following:
+\vspace{0.75em}
 
-\begin{itemize}
-\item Specific programming language
-\item Specific libraries
-\item Pre-trained models
-\item Specific linter tool (if appropriate)
-\item Specific unit testing framework
-\item Investigation of code coverage measuring tools
-\item Specific plans for Continuous Integration (CI), or an explanation that CI
-  is not being done
-\item Specific performance measuring tools (like Valgrind), if
-  appropriate
-\item Tools you will likely be using?
-\end{itemize}
+\noindent Unity's built-in physics, input, and rendering systems will be used where appropriate to support the drone simulation. Unity's VR and XR packages such as OpenXR Plugin and XR Interaction Toolkit will be investigated for integration with the project's VR hardware. Additional Unity packages and libraries such as Unity Mutiplayer SDK, Unity Transport and Unity Netcode may be used for multiplayer networking, data collection, visualization, and other functionality required by the project.
 
-\wss{git, GitHub and GitHub projects should be part of your technology.}
+\vspace{0.75em}
+
+\noindent For the AI-based flight analysis component, pre trained models are expected to be leveraged. Open Source models like Qwen2-VL should be used to provide feedback on areas such as control efficiency and flight performance. Existing models and libraries will be tested to see if it can satisfy the project's requirements before considering the development or training of a custom model.
+
+\vspace{0.75em}
+
+\noindent The project can use a standard linter such as Microsoft C\# linter and formatter to maintain consistent coding conventions and identify potential issues during development. Unit testing will be performed using an appropriate C\# testing framework, such as NUnit or Unity's Test Framework. Code coverage tools will also be investigated to measure the extent to which automated tests exercise the implemented functionality.
+\vspace{0.75em}
+
+\noindent Continuous Integration (CI) will be implemented using \textbf{GitHub Actions} where practical. Automated builds, tests, and code-quality checks will be run when changes are pushed to the repository or submitted through pull requests. This will help identify integration and testing issues before changes are merged into the main branch.
+
+\vspace{0.75em}
+\noindent \textbf{Git}, \textbf{GitHub}, and \textbf{GitHub Projects} will be used for version control, collaboration, issue tracking, and project management. GitHub Issues will be used to track development tasks and defects, while GitHub Projects will be used to organize and monitor the project's overall progress. Unity and the team's development environment will be used for implementation and debugging, while additional development and performance-monitoring tools will be investigated as the project progresses.
+
+\vspace{0.75em}
+\noindent The team will use an open source IDE like \textbf{Visual Studio Code} as the primary IDE for C\# development, debugging, and integration with Unity. Code coverage can be measured using a seperte \textbf{Unity's Code Coverage package} to determine the percentage of C\# code executed by the project's automated tests.
+The coverage results will be used to identify untested areas of the Unity project and guide additional test development.
+
+\vspace{0.75em}
+
+\noindent The team will use a free performance profiler such as the \textbf{Unity Profiler} to measure CPU, GPU, memory, physics, and rendering performance throughout development. The \textbf{Unity Memory Profiler} and \textbf{Frame Debugger} will also be investigated to identify memory usage issues and rendering bottlenecks, particularly for maintaining the performance requirements of the VR simulation.
+
+\vspace{0.75em}
+
+\noindent Although existing Unity systems, libraries, and frameworks will be used where appropriate, major project-specific components such as the drone flight model, controller behaviour, flight evaluation system, and integration between the simulation, VR controls, multiplayer functionality, and AI analysis will be implemented by the team. The specific implementation choices may change as the project progresses and the team evaluates feasibility, performance, and compatibility.
 
 \section{Use of AI and LLMs}
 
-\wss{This section is a continuation of the previous section.  The role of LLMs
-in your project as important enough to warrant their own section.  
-How will your team be using LLMs for code and documentation development?  
-What tools will you be using?  How will you verify the output of your LLMs?}
+\noindent The team will use \textbf{Claude Code} and \textbf{ChatGPT} as development and documentation assistance tools throughout the project. These tools may be used to assist with generating code, explaining unfamiliar concepts, debugging, developing test cases, reviewing code, and drafting or improving project documentation.
+
+\vspace{0.75em}
+
+\noindent LLM-generated code and documentation will not be treated as the standard. All generated code will be reviewed and tested by team members before being incorporated into the project. The team will verify functionality through unit tests, integration testing, manual testing, and performance testing where appropriate. Documentation generated with the assistance of LLMs will also be reviewed by team members against project requirements and rubrics to ensure that it is accurate.
 
 \section{Coding Standard}
 
-\wss{What coding standard will you adopt?}
+The project will use the \textbf{Microsoft C\# Coding Conventions} as the coding standard for all C\# source code. This will provide consistent conventions for naming, formatting, organization, and documentation throughout the project.
+
+\vspace{1em}
+
+\noindent PascalCase will be used for classes, methods, and public properties, and camelCase for local variables and parameters. Methods and classes will have descriptive names, and code will be organized into modular classes with each class having a clear responsibility.
+
+\vspace{1em}
+
+\noindent The project will use consistent indentation and brace formatting, avoid unnecessary code duplication, and include comments where they help explain non-obvious implementation details. Code will be formatted consistently using the development environment's formatting tools. Pull requests will be reviewed by another team member before being merged into the main branch to ensure the coding standard is followed.
 
 \newpage{}
 
