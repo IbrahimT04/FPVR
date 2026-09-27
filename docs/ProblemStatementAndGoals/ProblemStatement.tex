@@ -2,6 +2,8 @@
 
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{references.bib}
 
 \title{Problem Statement and Goals\\\progname}
 
@@ -52,6 +54,25 @@ understandable to a non-technical audience.}
 Use abstraction so that you can avoid details.}
 
 \subsection{Stakeholders}
+\subsubsection{Primary Stakeholders}
+\begin{itemize}
+    \item \textbf{Drone Pilots:} FPVR will be designed with beginner to intermediate
+    level pilots in mind, licensed or not, who have yet to familiarize themselves with flying drones
+    in the field.
+    \item \textbf{Drone Training Organizations:} In Canada, any drone above 250g in weight
+    requires a pilot with a formal certificate to operate in a public space [1]. 
+    Realistic drone flight simulation may complement or outright replace the 
+    mandatory in-person flight exams facilitated by drone schools.
+\end{itemize}
+
+\subsubsection{Secondary Stakeholders}
+\begin{itemize}
+    \item \textbf{Drone Clubs and Teams:} Local technical clubs designing and building
+    teleoperated FPV drones can benefit from FPVR and provide quick and useful feedback for improving
+    the product. 
+    \item \textbf{FPV Communities:} Anyone from a passive to hardcore FPV hobbyist
+    within a drone community might find this technology useful both for casual and practical use. 
+\end{itemize}
 
 \subsection{Environment}
 
@@ -96,4 +117,9 @@ instructor, can be modified over the course of the term.}
     appropriate complexity for a senior design project)?
 \end{enumerate}  
 
+\begin{thebibliography}{00}
+    \bibitem{1}
+        T. Canada, “Flying your drone safely and legally,” Transport Canada, Nov. 04, 2025. 
+        https://tc.canada.ca/en/aviation/drone-safety/learn-rules-you-fly-your-drone/flying-your-drone-safely-legally
+\end{thebibliography}
 \end{document}
