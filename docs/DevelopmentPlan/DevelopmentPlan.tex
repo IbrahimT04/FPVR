@@ -104,7 +104,25 @@ likely change throughout the year.}
     issue number (e.g.\ \texttt{feature/18}).
     \item Changes are merged into \texttt{main} through pull requests, which
     must be reviewed and approved by at least one other team member and pass
-    CI before merging.
+    CI before merging. Each pull request links the issue it resolves (e.g.\
+    \texttt{Closes \#18}) so the issue closes automatically when it is merged.
+    \item After a pull request is merged, its branch is deleted on GitHub
+    and locally. Branches that have had no activity for over two weeks are
+    reviewed at the next team meeting and either finished or deleted, so that
+    the list of branches only shows active work.
+  \end{itemize}
+  \item \textbf{Tags and releases:}
+  \begin{itemize}
+    \item When a deliverable is submitted, the commit on \texttt{main} that
+    was submitted is marked with an annotated Git tag named after the
+    deliverable and revision (e.g.\ \texttt{DevPlan-Rev0},
+    \texttt{SRS-Rev0}, \texttt{Final-Rev1}). This records exactly what was
+    submitted, and makes it easy to compare later revisions against it.
+    \item Tags are created only after the deliverable's pull request has been
+    merged and the quality assurance check is complete.
+    \item Once working software exists, each demonstration (the proof of
+    concept, Revision~0, and Revision~1) is also published as a GitHub
+    Release from its tag, with a short summary of the features included.
   \end{itemize}
   \item \textbf{Issues:}
   \begin{itemize}
@@ -114,8 +132,9 @@ likely change throughout the year.}
     templates automatically apply the \texttt{meeting} or \texttt{review}
     label.
     \item Other issues, such as development tasks and bugs, are created as
-    blank issues and classified using GitHub's default labels
-    (e.g.\ \texttt{documentation}, \texttt{enhancement}, \texttt{bug}).
+    blank issues. These are classified with labels that describe the type of
+    work, such as \texttt{documentation}, \texttt{enhancement}, and
+    \texttt{bug}.
     \item Each issue is assigned to a team member and tracked on the
     project's Kanban board.
   \end{itemize}
