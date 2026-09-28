@@ -34,6 +34,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v5
         with:
+          ssh-key: ${{secrets.DEPLOY_KEY_SECRET}}
           fetch-depth: 0
 
       - name: Restore PDF cache
