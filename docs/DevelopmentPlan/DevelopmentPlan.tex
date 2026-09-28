@@ -196,41 +196,43 @@ you will be able to overcome this risk?
 \section{Expected Technology}
 
 
-\noindent The project will use an open source game engine like \textbf{Unity} as the primary game engine and \textbf{C\#} as the primary programming language. C\# will be used to implement the drone simulation, flight controls, physics, user interfaces, VR interactions, multiplayer functionality, and AI-based flight analysis. C may be investigated for lower-level components such as drivers if direct hardware access or performance requirements make it necessary.
+\noindent The project will use an open source game engine like Unity as the primary game engine and C\# as the primary programming language. C\# will be used to implement the drone simulation, flight controls, physics, user interfaces, VR interactions, multiplayer functionality, and AI-based flight analysis. Unity and C\# were selected because they provide established tools for VR development, physics simulation, and cross-platform deployment. However, Unity's abstractions may limit access to lower-level hardware functionality and may introduce performance overhead for computationally intensive components. C may therefore be investigated for lower-level components such as drivers if direct hardware access or performance requirements make it necessary.
 
 \vspace{0.75em}
 
-\noindent Unity's built-in physics, input, and rendering systems will be used where appropriate to support the drone simulation. Unity's VR and XR packages such as OpenXR Plugin and XR Interaction Toolkit will be investigated for integration with the project's VR hardware. Additional Unity packages and libraries such as Unity Mutiplayer SDK, Unity Transport and Unity Netcode may be used for multiplayer networking, data collection, visualization, and other functionality required by the project.
+\noindent Unity's built-in physics, input, and rendering systems will be used where appropriate to support the drone simulation. These systems reduce the need to implement common functionality from scratch, but their general-purpose implementations may not provide the level of control or performance required for realistic FPV flight. Unity's VR and XR packages such as OpenXR Plugin and XR Interaction Toolkit will be investigated for integration with the project's VR hardware, with compatibility and input latency evaluated during development. Additional Unity packages and libraries such as Unity Multiplayer SDK, Unity Transport and Unity Netcode may be used for multiplayer networking, data collection, visualization, and other functionality required by the project. These packages will be evaluated based on their compatibility, performance, documentation, and ability to meet the project's requirements, with custom implementations considered where existing functionality is insufficient.
 
 \vspace{0.75em}
 
-\noindent For the AI-based flight analysis component, pre trained models are expected to be leveraged. Open Source models like Qwen2-VL should be used to provide feedback on areas such as control efficiency and flight performance. Existing models and libraries will be tested to see if it can satisfy the project's requirements before considering the development or training of a custom model.
+\noindent For the AI-based flight analysis component, pre trained models are expected to be leveraged rather than developing a model from scratch. Open Source models like Qwen2-VL may be investigated to provide feedback on areas such as control efficiency and flight performance. However, general-purpose models may not reliably interpret the structured controller inputs and flight telemetry required by the project and may produce inconsistent feedback. Existing models and libraries will therefore be tested against representative flight data to determine whether they satisfy the project's accuracy, performance, and hardware requirements before considering fine-tuning, adapting an existing model, or developing a custom model.
 
 \vspace{0.75em}
 
-\noindent The project can use a standard linter such as Microsoft C\# linter and formatter to maintain consistent coding conventions and identify potential issues during development. Unit testing will be performed using an appropriate C\# testing framework, such as NUnit or Unity's Test Framework. Code coverage tools will also be investigated to measure the extent to which automated tests exercise the implemented functionality.
+\noindent The project can use a standard linter such as Microsoft C\# linter and formatter to maintain consistent coding conventions and identify potential issues during development. The linter will provide automated checks for common coding problems, although static analysis cannot detect all runtime or simulation-specific issues. Unit testing will therefore be performed using an appropriate C\# testing framework, such as NUnit or Unity's Test Framework. Code coverage tools will also be investigated to measure the extent to which automated tests exercise the implemented functionality and identify areas requiring additional tests.
 \vspace{0.75em}
 
-\noindent Continuous Integration (CI) will be implemented using \textbf{GitHub Actions} where practical. Automated builds, tests, and code-quality checks will be run when changes are pushed to the repository or submitted through pull requests. This will help identify integration and testing issues before changes are merged into the main branch.
+\noindent Continuous Integration (CI) will be implemented using GitHub Actions where practical. Automated builds, tests, and code-quality checks will be run when changes are pushed to the repository or submitted through pull requests. GitHub Actions was selected because it integrates with the team's existing GitHub workflow and can automate repetitive verification tasks. However, Unity projects can require significant build dependencies and execution time, so the CI workflow will be limited to checks that can be reliably automated within the available resources. This will help identify integration and testing issues before changes are merged into the main branch.
 
 \vspace{0.75em}
-\noindent \textbf{Git}, \textbf{GitHub}, and \textbf{GitHub Projects} will be used for version control, collaboration, issue tracking, and project management. GitHub Issues will be used to track development tasks and defects, while GitHub Projects will be used to organize and monitor the project's overall progress. Unity and the team's development environment will be used for implementation and debugging, while additional development and performance-monitoring tools will be investigated as the project progresses.
+\noindent Git, GitHub, and GitHub Projects will be used for version control, collaboration, issue tracking, and project management. GitHub Issues will be used to track development tasks and defects, while GitHub Projects will be used to organize and monitor the project's overall progress. These tools provide an integrated workflow for coordinating development, while working within the github ecosystem.
 
 \vspace{0.75em}
-\noindent The team will use an open source IDE like \textbf{Visual Studio Code} as the primary IDE for C\# development, debugging, and integration with Unity. Code coverage can be measured using a seperte \textbf{Unity's Code Coverage package} to determine the percentage of C\# code executed by the project's automated tests.
-The coverage results will be used to identify untested areas of the Unity project and guide additional test development.
-
-\vspace{0.75em}
-
-\noindent The team will use a free performance profiler such as the \textbf{Unity Profiler} to measure CPU, GPU, memory, physics, and rendering performance throughout development. The \textbf{Unity Memory Profiler} and \textbf{Frame Debugger} will also be investigated to identify memory usage issues and rendering bottlenecks, particularly for maintaining the performance requirements of the VR simulation.
+\noindent The team will use an open source IDE like Visual Studio Code as the primary IDE for development, debugging, and integration with Unity. Visual Studio Code provides a lightweight development environment and supports the project's required languages and tools, although its Unity and C\# functionality may not provide the same level of integrated tooling as a full-featured IDE but it gives familiarity and flexibility if changes are to be made in the future. Code coverage can be measured using a separate Unity's Code Coverage package to determine the percentage of C\# code executed by the project's automated tests. 
 
 \vspace{0.75em}
 
-\noindent Although existing Unity systems, libraries, and frameworks will be used where appropriate, major project-specific components such as the drone flight model, controller behaviour, flight evaluation system, and integration between the simulation, VR controls, multiplayer functionality, and AI analysis will be implemented by the team. The specific implementation choices may change as the project progresses and the team evaluates feasibility, performance, and compatibility.
+\noindent The team will use a free performance profiler such as the Unity Profiler to measure CPU, GPU, memory, physics, and rendering performance throughout development. The Unity Memory Profiler and Frame Debugger will also be investigated to identify memory usage issues and rendering bottlenecks, particularly for maintaining the performance requirements of the VR simulation. These tools provide detailed information about Unity's runtime behaviour, but profiling results may not fully represent performance on the final VR hardware. Performance testing will therefore also be performed on the target hardware to validate that optimizations identified through profiling translate into acceptable real-world performance.
+
+\vspace{0.75em}
+
+\noindent Although existing Unity systems, libraries, and frameworks will be used where appropriate, major project-specific components such as the drone flight model, controller behaviour, flight evaluation system, and integration between the simulation, VR controls, multiplayer functionality, and AI analysis will be implemented through custom code. Existing tools will be preferred when they provide reliable and maintainable functionality, while custom implementations will be considered when their limitations prevent them from meeting the project's requirements. 
+
+
+
 
 \section{Use of AI and LLMs}
 
-\noindent The team will use \textbf{Claude Code} and \textbf{ChatGPT} as development and documentation assistance tools throughout the project. These tools may be used to assist with generating code, explaining unfamiliar concepts, debugging, developing test cases, reviewing code, and drafting or improving project documentation.
+\noindent The team will use Claude Code and ChatGPT as development and documentation assistance tools throughout the project. These tools may be used to assist with generating code, explaining unfamiliar concepts, debugging, developing test cases, reviewing code, and drafting or improving project documentation.
 
 \vspace{0.75em}
 
