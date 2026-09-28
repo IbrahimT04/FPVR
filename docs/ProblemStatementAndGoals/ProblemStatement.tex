@@ -22,36 +22,69 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
+Sept 27, 2026 & John Cho & Initial Problem Statement\\
+Sep 27 2026 & Vikram Chandar & Goals, Stretch Goals and Environment\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \section{Problem Statement}
 
-\wss{You should check your problem statement with the
-\href{https://smiths.github.io/capTemplate/Checklists/ProbState-Checklist.pdf}
-{problem statement checklist}}. 
+% \wss{You should check your problem statement with the
+% \href{https://smiths.github.io/capTemplate/Checklists/ProbState-Checklist.pdf}
+% {problem statement checklist}}. 
 
-\wss{You can change the section headings, as long as you include the required
-information.}
+% \wss{You can change the section headings, as long as you include the required
+% information.}
 
 \subsection{Problem}
 
-\wss{What problem are you trying to solve?  Why is it important? Do not talk
-about how you will solve the problem, only what the problem is.  AI is rarely
-part of the problem.  The problem is ``what'' you want to do, not ``how'' you
-want to do it.  The problem statement should be written in a way that is
-understandable to a non-technical audience.}
+% \wss{What problem are you trying to solve?  Why is it important? Do not talk
+% about how you will solve the problem, only what the problem is.  AI is rarely
+% part of the problem.  The problem is ``what'' you want to do, not ``how'' you
+% want to do it.  The problem statement should be written in a way that is
+% understandable to a non-technical audience.}
+Learning to fly a FPV (First person view) drone can be difficult and unsafe especially 
+for beginner pilots. If left unaccounted for, they can risk damaging their drones, nearby 
+property, or other equipment while learning basic flight controls and maneuvers.
+\\ \\
+Practing and flying in general through traditional means can also be limited by the need 
+for large open spaces, weather conditions, and access to costly hardware. 
+These barriers can make it difficult for anybody to fly a drone with little to no
+consequences.
 
 \subsection{Inputs and Outputs}
 
-\wss{Characterize the problem in terms of ``high level'' inputs and outputs.  
-Use abstraction so that you can avoid details.}
+\textbf{Inputs:}
+\begin{itemize}
+    \item Joystick controller or similar interface (over RF or Serial)
+\end{itemize}
+\textbf{Outputs:}
+\begin{itemize}
+    \item Simulated feedback from the VR
+    \item AI-integrated performance analysis at the end of a course/session
+\end{itemize}
 
 \subsection{Stakeholders}
+\subsubsection{Primary Stakeholders}
+\begin{itemize}
+    \item \textbf{Drone Pilots:} FPVR will be designed with beginner to intermediate
+    level pilots in mind, licensed or not, who have yet to familiarize themselves with flying drones
+    in the field.
+    \item \textbf{Drone Training Organizations:} In Canada, any drone above 250g in weight
+    requires a pilot with a formal certificate to operate in a public space [1]. 
+    Realistic drone flight simulation may complement or outright replace the 
+    mandatory in-person flight exams facilitated by drone schools.
+\end{itemize}
+
+\subsubsection{Secondary Stakeholders}
+\begin{itemize}
+    \item \textbf{Drone Clubs and Teams:} Local technical clubs designing and building
+    teleoperated FPV drones can benefit from FPVR and provide quick and useful feedback for improving
+    the product. 
+    \item \textbf{FPV Communities:} Anyone from a passive to hardcore FPV hobbyist
+    within a drone community might find this technology useful both for casual and practical use. 
+\end{itemize}
 
 \subsection{Environment}
 
@@ -110,4 +143,9 @@ The extras chosen are the Design Thinking Report and the Usability Report. The D
     appropriate complexity for a senior design project)?
 \end{enumerate}  
 
+\begin{thebibliography}{00}
+    \bibitem{1}
+        T. Canada, “Flying your drone safely and legally,” Transport Canada, Nov. 04, 2025. 
+        https://tc.canada.ca/en/aviation/drone-safety/learn-rules-you-fly-your-drone/flying-your-drone-safely-legally
+\end{thebibliography}
 \end{document}
