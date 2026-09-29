@@ -28,6 +28,8 @@ Sep 27 2026 & Ibrahim Tariq & Add Introduction and Gen AI usage in report sectio
 Sep 27 2026 & Vikram Chandar & Add Expected Technology, Coding Standards and Use of AI sections\\
 Sep 27 2026 & Sankalpa Chhetri Dhakal & Add IP to Protect section and Project Decomposition and Scheduling sections\\
 Sep 28 2026 & John Cho & Added POC Demo Plan and Potential Risks\\
+Sep 28 2026 & Arjun Sasidaran & Add Copyright License, Team Meeting Plan, Team Communication Plan, Team Member Roles and Workflow Plan sections, and reflection\\
+... & ... & ...\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -437,6 +439,61 @@ and scheduling, we had to decide how tasks should be represented and tracked thr
 smaller differences through discussion and by choosing approaches that were simple enough to use now but could still be expanded later as 
 the project becomes more complex. Overall, responsibilities were divided between team members, and we reviewed the combined work to make 
 sure the different sections were consistent with the direction of the project.
+
+\subsection*{Arjun - Reflection}
+\subsubsection*{Why is it important to create a development plan prior to starting the
+    project?}
+
+A development plan forces the team to agree on how the project will run
+before any real work depends on those decisions. When I wrote the workflow
+plan, I had to decide how branches are named, when they are deleted, how pull
+requests are reviewed, and how submitted deliverables are tagged. These are
+easy to agree on now, but would be much harder to change after five people
+have each developed their own habits. Writing the team roles and meeting plan
+had a similar effect: naming a team lead, a team liaison, and a rotating
+quality assurance role means that responsibilities are clear from the start,
+instead of being assumed. The plan also acts as a reference point. When
+questions come up later in the year, such as who contacts the supervisor or
+how a decision should be recorded, the team can check the plan rather than
+debate the question again.
+
+\subsubsection*{In your opinion, what are the advantages and disadvantages of using
+    CI/CD?}
+
+The main advantage of CI/CD is that checks run automatically, so the team
+does not have to rely on each member remembering to run them. Our repository
+already compiles the \LaTeX{} documents on every pull request, which means a
+document that fails to build is caught before it is merged into
+\texttt{main}. The same workflow also publishes the generated PDFs, so
+reviewers and the TA always see the latest version without anyone building
+and uploading them by hand. Once our Unity code is added, running the build
+and unit tests on every pull request should give the same protection for the
+software.
+
+The disadvantage is that the pipeline itself becomes something the team has
+to understand and maintain. While working on this deliverable, I found that
+the workflow only produces a viewable PDF after changes are merged into
+\texttt{main}, which was not obvious at first. Workflows can also fail for
+reasons unrelated to our work, such as package installation problems, and
+each run takes time before a pull request can be merged. For a Unity and VR
+project, automating builds and tests will take extra setup, so the team
+should add automation gradually where it clearly saves effort.
+
+\subsubsection*{What disagreements did your group have in this deliverable, if any,
+    and how did you resolve them?}
+
+The team did not have any serious disagreements, but there were a few
+decisions that needed discussion. The main one was how often the team should
+meet. The first draft of the meeting plan had two meetings a week, one in
+person and one on Discord. After discussing everyone's schedules, the team
+agreed that one in-person meeting on Thursday afternoons was more realistic,
+with Discord used as a backup when the team cannot meet in person. There was
+also some discussion about how specific the team roles should be, since some
+technical areas, such as the back-end systems, are not fully defined yet. The
+team resolved this by assigning each member a technical area now and stating
+that roles are expected to change over the year. These decisions were made
+through discussion in meetings and on Discord, and the final wording was
+checked through pull request reviews.
 
 \newpage{}
 
