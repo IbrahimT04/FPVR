@@ -26,6 +26,7 @@
 \midrule
 Sep 27 2026 & Vikram Chandar & Add Expected Technology, Coding Standards and Use of AI sections\\
 Sep 27 2026 & Sankalpa Chhetri Dhakal & Add IP to Protect section and Project Decomposition and Scheduling sections\\
+Sep 28 2026 & John Cho & Added POC Demo Plan and Potential Risks\\
 Sep 28 2026 & Arjun Sasidaran & Add Copyright License, Team Meeting Plan, Team Communication Plan, Team Member Roles and Workflow Plan sections, and reflection\\
 ... & ... & ...\\
 \bottomrule
@@ -270,9 +271,47 @@ to continuously track progress and adjust the schedule as priorities change.
 
 \section{Proof of Concept Demonstration Plan}
 
-What is the main risk, or risks, for the success of your project?  What will you
-demonstrate during your proof of concept demonstration to convince yourself that
-you will be able to overcome this risk?
+% What is the main risk, or risks, for the success of your project?  What will you
+% demonstrate during your proof of concept demonstration to convince yourself that
+% you will be able to overcome this risk?
+The main appeal for this project and what should be prioritized above all else
+is the VR integration and controller interface support. Without it, the entire
+idea falls flat and loses its biggest charm. To prevent that from happening, the proof of concept
+demonstration will generally focus on setting up a basic Unity project with VR support along
+with a simple but functional drone flight model and an off-the-shelf USB controller.
+By following this plan, the team will be able to demonstrate the feasibility of the 
+overall concept while establishing a foundation for the remainder of the project's
+development.
+\subsection{Potential Risks and Mitigation Strategies}
+The following is a list of potential risks that can impact the success of FPVR:
+\begin{itemize}
+    \item \textbf{VR Incompatibility:} VR hardware (Meta Quest 3) may face compatibility issues
+    with Unity or VR SDK. Begin VR integration early using Unity's OpenXR
+    Plugin and XR Interaction Toolkit. Test the Meta Quest 3 with basic
+    scenes and build off from there. If for whatever reason this is not possible, one fallback could
+    be to create a non-VR desktop mode for users to interact with the simulation.
+    \item \textbf{RF Integration Issues:} Interfacing open-source radio communication protocols with
+    a custom RF module to connect with drone controllers may present challenges especially in integration. 
+    It is still unknown if such an idea is viable and more research is required to determine if it could work.
+    Test early using recommended hardware, read through necessary documentation, and create simple
+    prototypes. If a radio link is not feasible, the project will use a supported USB or virtual
+    controller as an alternative solution. 
+    \item \textbf{Unrealistic Flight Physics:} The drone in simulation may not be as accurate as 
+    expected, leading to unrealistic flight and control behavior. Develop the flight model incrementally,
+    beginning with basic movement and control before adding more advanced features such as PID feedback and
+    telemetry. The simulation may be compared against real drone flight data, documented
+    specifications, and feedback from experienced drone pilots where possible.
+    Physics parameters will be configurable so that the model can be adjusted as
+    testing reveals inaccuracies.
+    \item \textbf{Latency and Overall Performance:} The simulation will be built under dozens of
+    hidden abstraction layers which can introduce unwanted latency and tank performance.
+    Establish requirements for frame rate, input latency, and simulation response time early in development.
+    Use Unity Profiler, Unity Memory Profiler, and Frame Debugger to identify
+    bottlenecks. The team will attempt to focus on optimizing as much as possible, reducing
+    unnecessary processing, rendering complexity, and network traffic. If all goes well and secondary
+    features come into play, Multiplayer and AI-assisted tooling will be
+    designed so that they do not interfere with the real-time flight controls.
+\end{itemize}
 
 \section{Expected Technology}
 
@@ -460,74 +499,64 @@ checked through pull request reviews.
 
 \section*{Appendix --- Team Charter}
 
-\wss{borrows from
-\href{https://engineering.up.edu/industry_partnerships/files/team-charter.pdf}
-{University of Portland Team Charter}}
-
 \subsection*{External Goals}
 
-\wss{What are your team's external goals for this project? These are not the
-goals related to the functionality or quality fo the project.  These are the
-goals on what the team wishes to achieve with the project.  Potential goals are
-to win a prize at the Capstone EXPO, or to have something to talk about in
-interviews, or to get an A+, etc.}
-
+The team’s main external goal is to produce a polished capstone project that we are proud to demonstrate at the Capstone EXPO and can discuss in future academic and professional opportunities. We aim to perform well in the course while also gaining practical experience with technologies and development practices that are relevant outside of the classroom. Each team member should finish the project with meaningful technical contributions that they can discuss in interviews and include in their portfolio.
 \subsection*{Attendance}
 
 \subsubsection*{Expectations}
 
-\wss{What are your team's expectations regarding meeting attendance (being on
-time, leaving early, missing meetings, etc.)?}
+Team members are expected to attend at least 90\% of scheduled team and supervisor meetings and arrive on time. If a member knows that they will be late or unable to attend, they should notify the team through Discord as early as possible.
+
+Members who miss a meeting are responsible for reviewing the meeting notes and completing any action items assigned to them. Attendance will be reviewed if a member repeatedly misses meetings or arrives late without communicating with the team.
 
 \subsubsection*{Acceptable Excuse}
 
-\wss{What constitutes an acceptable excuse for missing a meeting or a deadline?
-What types of excuses will not be considered acceptable?}
+Acceptable reasons for missing a meeting or deadline include illness, emergencies, unavoidable academic conflicts, work obligations that cannot reasonably be changed, or other circumstances outside of a member's control.
+
+Whenever possible, the team should be notified in advance. Forgetting about a meeting, repeatedly failing to manage time, or missing a deadline without communicating with the team are not considered acceptable excuses.
 
 \subsubsection*{In Case of Emergency}
 
-\wss{What process will team members follow if they have an emergency and cannot
-attend a team meeting or complete their individual work promised for a team
-deliverable?}
+If a team member experiences an emergency that prevents them from attending a meeting or completing assigned work, they should notify the team through Discord as soon as reasonably possible.
+
+If an important task cannot be completed before its deadline, the member should provide the team with the current state of their work when possible. The team will then redistribute urgent work among available members and adjust responsibilities or deadlines where possible.
 
 \subsection*{Accountability and Teamwork}
 
 \subsubsection*{Quality} 
 
-\wss{What are your team's expectations regarding the quality
-of team members' preparation for team meetings and the quality of the
-deliverables that members bring to the team?}
+Team members are expected to come to meetings prepared and complete assigned work to a standard suitable for inclusion in the project. Members should review and test their own work before requesting review from another team member.
+
+Course deliverables should be checked against the relevant rubric and project requirements before submission. Pull requests should contain work that is understandable and ready for review. At least one other team member should review a pull request before it is merged.
 
 \subsubsection*{Attitude}
 
-\wss{What are your team's expectations regarding team members' ideas,
-interactions with the team, cooperation, attitudes, and anything else regarding
-team member contributions?  Do you want to introduce a code of conduct?  Do you
-want a conflict resolution plan?  Can adopt existing codes of conduct.}
+Team members are expected to communicate respectfully and be open to the ideas and feedback of others. Members should be comfortable proposing ideas, asking questions, disagreeing with decisions, and providing constructive criticism.
+
+Everyone should make a reasonable effort to help other members when they encounter blockers. Disagreements should focus on the project rather than individuals, and criticism should be constructive.
 
 \subsubsection*{Stay on Track}
 
-\wss{What methods will be used to keep the team on track? How will your team
-ensure that members contribute as expected to the team and that the team
-performs as expected? How will your team reward members who do well and manage
-members whose performance is below expectations?  What are the consequences for
-someone not contributing their fair share?}
+GitHub Issues and the GitHub Project Kanban board will be used to track assigned work, deadlines, and progress. Each task should have an assigned team member and be moved through the board as work progresses. Progress and blockers will also be discussed during regular team meetings.
 
-\wss{You may wish to use the project management metrics collected for the TA and
-instructor for this.}
+Trigger items that may require team discussion include repeatedly missing meetings, failing to communicate for more than 48 hours on weekdays, repeatedly missing agreed-upon deadlines without notice, or consistently failing to complete assigned work.
 
-\wss{You can set target metrics for attendance, commits, etc.  What are the
-consequences if someone doesn't hit their targets?  Do they need to bring the
-coffee to the next team meeting?  Does the team need to make an appointment with
-their TA, or the instructor?  Are there incentives for reaching targets early?}
+When one of these issues occurs, the team will first discuss it directly with the member and determine whether there is a blocker or other issue that can be resolved. If the behaviour continues, responsibilities may be reassigned and the issue will be discussed by the full team. Continued problems may be brought to the TA, supervisor, or instructor if necessary.
+
+Members who complete their work early or make additional contributions are encouraged to help with outstanding development, testing, reviews, or documentation. Strong contributions will also be recognized during meetings and considered when dividing future work so that responsibilities remain fair. Contributors that continously fail to meet expectations will have to buy lunch for everyone on the team, in the next meeting.
 
 \subsubsection*{Team Building}
 
-\wss{How will you build team cohesion (fun time, group rituals, etc.)? }
+The team will build cohesion through regular in-person meetings and collaborative working sessions. Discord will also be used for informal communication so that interactions are not limited strictly to assigned project tasks.
+
+The team may occasionally organize informal activities such as getting food together, playing poker, or working together outside of scheduled meetings. The goal is to maintain a comfortable team environment where members can communicate openly and enjoy working together throughout the project.
 
 \subsubsection*{Decision Making} 
 
-\wss{How will you make decisions in your group? Consensus?  Vote? How will you
-handle disagreements? }
+The team will attempt to make decisions through consensus whenever possible. Each member should have an opportunity to give their opinion, particularly when a decision directly affects the technical area they are leading.
 
+For technical disagreements, the team will consider project requirements, feasibility, implementation effort, maintainability, performance, and evidence from research or testing. When practical, prototypes or experiments may be used to compare alternatives.
+
+If consensus cannot be reached within a reasonable amount of time, the team will use a majority vote so that the disagreement does not block progress. With five team members, a decision requires at least three votes to pass. For significant decisions where the team remains uncertain, the team may consult the supervisor, TA, or instructor. Important decisions will be recorded in the relevant GitHub Issue.
 \end{document}
