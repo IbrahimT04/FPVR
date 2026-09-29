@@ -26,8 +26,7 @@
 \midrule
 Sep 27 2026 & Vikram Chandar & Add Expected Technology, Coding Standards and Use of AI sections\\
 Sep 27 2026 & Sankalpa Chhetri Dhakal & Add IP to Protect section and Project Decomposition and Scheduling sections\\
-Date3 & Name(s) & Description of changes\\
-... & ... & ...\\
+Sep 28 2026 & John Cho & Added POC Demo Plan and Potential Risks\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -270,9 +269,47 @@ to continuously track progress and adjust the schedule as priorities change.
 
 \section{Proof of Concept Demonstration Plan}
 
-What is the main risk, or risks, for the success of your project?  What will you
-demonstrate during your proof of concept demonstration to convince yourself that
-you will be able to overcome this risk?
+% What is the main risk, or risks, for the success of your project?  What will you
+% demonstrate during your proof of concept demonstration to convince yourself that
+% you will be able to overcome this risk?
+The main appeal for this project and what should be prioritized above all else
+is the VR integration and controller interface support. Without it, the entire
+idea falls flat and loses its biggest charm. To prevent that from happening, the proof of concept
+demonstration will generally focus on setting up a basic Unity project with VR support along
+with a simple but functional drone flight model and an off-the-shelf USB controller.
+By following this plan, the team will be able to demonstrate the feasibility of the 
+overall concept while establishing a foundation for the remainder of the project's
+development.
+\subsection{Potential Risks and Mitigation Strategies}
+The following is a list of potential risks that can impact the success of FPVR:
+\begin{itemize}
+    \item \textbf{VR Incompatibility:} VR hardware (Meta Quest 3) may face compatibility issues
+    with Unity or VR SDK. Begin VR integration early using Unity's OpenXR
+    Plugin and XR Interaction Toolkit. Test the Meta Quest 3 with basic
+    scenes and build off from there. If for whatever reason this is not possible, one fallback could
+    be to create a non-VR desktop mode for users to interact with the simulation.
+    \item \textbf{RF Integration Issues:} Interfacing open-source radio communication protocols with
+    a custom RF module to connect with drone controllers may present challenges especially in integration. 
+    It is still unknown if such an idea is viable and more research is required to determine if it could work.
+    Test early using recommended hardware, read through necessary documentation, and create simple
+    prototypes. If a radio link is not feasible, the project will use a supported USB or virtual
+    controller as an alternative solution. 
+    \item \textbf{Unrealistic Flight Physics:} The drone in simulation may not be as accurate as 
+    expected, leading to unrealistic flight and control behavior. Develop the flight model incrementally,
+    beginning with basic movement and control before adding more advanced features such as PID feedback and
+    telemetry. The simulation may be compared against real drone flight data, documented
+    specifications, and feedback from experienced drone pilots where possible.
+    Physics parameters will be configurable so that the model can be adjusted as
+    testing reveals inaccuracies.
+    \item \textbf{Latency and Overall Performance:} The simulation will be built under dozens of
+    hidden abstraction layers which can introduce unwanted latency and tank performance.
+    Establish requirements for frame rate, input latency, and simulation response time early in development.
+    Use Unity Profiler, Unity Memory Profiler, and Frame Debugger to identify
+    bottlenecks. The team will attempt to focus on optimizing as much as possible, reducing
+    unnecessary processing, rendering complexity, and network traffic. If all goes well and secondary
+    features come into play, Multiplayer and AI-assisted tooling will be
+    designed so that they do not interfere with the real-time flight controls.
+\end{itemize}
 
 \section{Expected Technology}
 
