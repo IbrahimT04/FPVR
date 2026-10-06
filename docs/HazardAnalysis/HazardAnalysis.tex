@@ -59,8 +59,101 @@ Oct 6 & Sankalpa Chhetri Dhakal & Completed Scope and Purpose and System Boundar
 
 \section{Scope and Purpose of Hazard Analysis}
 
-\wss{You should say what \textbf{loss} could be incurred because of the
-hazards.}
+\section{System Boundaries and Components}
+
+The system consists of several major software and hardware components. These
+components are considered independently during hazard identification because a
+failure in one component may affect the safety or correctness of the overall
+system.
+
+\subsection{VR Headset}
+
+The VR headset, expected to be a \textbf{Meta Quest 3S}, provides the user's
+visual representation of the simulated environment and tracks the position and
+orientation of the user's head.
+
+Potential hazards associated with this component include loss of tracking,
+visual latency, incorrect orientation, poor headset fit, and the user becoming
+unaware of their physical surroundings.
+
+\subsection{VR Controllers / Input Devices}
+
+The input subsystem allows the user to control the simulated drone. Depending
+on the final implementation, input may be provided through VR controllers, a
+game controller, or an external FPV-style radio controller.
+
+Failures may include disconnected controllers, incorrect input mappings, stuck
+inputs, input delay, or incorrect calibration.
+
+\subsection{Host Computer}
+
+A computer executes the Unity application and associated simulation software.
+
+Failures may include insufficient hardware performance, overheating, loss of
+power, driver issues, or resource exhaustion.
+
+\subsection{Unity Application}
+
+Unity provides the primary execution environment for the game.
+
+This component is responsible for scene management, game logic, user
+interaction, rendering, and communication between major software modules.
+
+\subsection{Drone Physics Simulation}
+
+The drone physics subsystem models properties such as:
+
+\begin{itemize}
+    \item thrust;
+    \item gravity;
+    \item acceleration;
+    \item angular velocity;
+    \item momentum;
+    \item collisions; and
+    \item drone response to pilot input.
+\end{itemize}
+
+Incorrect behaviour in this component represents an important hazard because
+users are expected to learn flying behaviour from the simulator.
+
+\subsection{VR Rendering and XR Subsystem}
+
+This subsystem renders the virtual environment and communicates with the VR
+headset.
+
+Failures may result in visual artifacts, low frame rate, latency, incorrect
+camera movement, or loss of tracking.
+
+\subsection{Training and Scoring System}
+
+The training subsystem may contain tutorials, objectives, checkpoints, scoring
+metrics, crash detection, and user performance feedback.
+
+Incorrect scoring or feedback could indicate that unsafe or incorrect flying
+behaviour is acceptable.
+
+\subsection{User Interface}
+
+The interface includes menus, settings, warnings, calibration options, pause
+controls, and training instructions.
+
+Poor interface design could prevent the user from understanding warnings or
+exiting the simulation quickly.
+
+\subsection{Data Storage}
+
+The system may locally store information such as:
+
+\begin{itemize}
+    \item user settings;
+    \item controller configuration;
+    \item training progress;
+    \item scores; and
+    \item application configuration.
+\end{itemize}
+
+Data corruption or unauthorized modification could affect system operation or
+training results.
 
 \section{System Boundaries and Components}
 
